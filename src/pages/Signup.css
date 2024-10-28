@@ -1,0 +1,100 @@
+/* Background styling */
+.signup-container {
+    background-image: url('https://ugc.berkeley.edu/wp-content/uploads/2016/01/thunderstorm-3625405_1920.jpg'); /* Ensure you update this path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .signup-card {
+    background: rgba(255, 255, 255, 0.7); /* Translucent background */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    backdrop-filter: blur(10px); /* Adds a blur effect for glassmorphism */
+    width: 400px;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem;
+    color: #0d47a1; /* Deep blue for headings */
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Form input styles */
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-container {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0d47a1;
+    font-size: 1.2rem;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px 10px 10px 40px; /* Space for the icon */
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: #0d47a1;
+    box-shadow: 0 0 5px rgba(13, 71, 161, 0.5);
+  }
+  
+  /* Button styling */
+  .btn-signup {
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background-color: #0d47a1;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-signup:hover {
+    background-color: #1565c0;
+  }
+  
+  .login-link {
+    color: #0d47a1;
+    text-decoration: none;
+  }
+  
+  .login-link:hover {
+    text-decoration: underline;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+  

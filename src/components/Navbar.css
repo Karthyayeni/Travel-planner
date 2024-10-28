@@ -1,0 +1,42 @@
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #0d47a1; /* Dark blue background */
+    color: white; /* White text color */
+}
+
+/* Logo styles */
+.navbar-logo a {
+    font-size: 1.5rem;
+    color: white; /* Logo color */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Link styles */
+.navbar-links {
+    list-style: none; /* Remove default list style */
+    display: flex;
+    gap: 1.5rem; /* Space between links */
+}
+
+/* Link and icon styles */
+.navbar-links li a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* Link color */
+    font-size: 1.1rem; /* Font size */
+    display: flex; /* Flex for icon alignment */
+    align-items: center; /* Center icons vertically */
+}
+
+.navbar-icon {
+    margin-right: 0.5rem; /* Space between icon and text */
+    font-size: 1.2rem; /* Icon size */
+}
+
+/* Hover effect for links */
+.navbar-links li a:hover {
+    color: #bbdefb; /* Light blue on hover */
+}

@@ -1,0 +1,104 @@
+/* Container for the login form */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('https://wallpapershome.com/images/wallpapers/ocean-1920x1080-5k-4k-wallpaper-8k-shore-beach-clouds-sky-5518.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Login card */
+.login-card {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    width: 400px; /* Adjust width if necessary */
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for login card */
+.login-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Title styling */
+h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem;
+    color: #0d47a1;
+    margin-bottom: 1.5rem;
+}
+
+/* Input container for each field */
+.input-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+/* Input fields styling */
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 20px); /* Adjusted width */
+    padding: 10px 40px;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+/* Icon inside input field */
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #0d47a1;
+    font-size: 1.2rem;
+}
+
+/* Focus state for input fields */
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #0d47a1;
+    box-shadow: 0 0 5px rgba(13, 71, 161, 0.5);
+    outline: none;
+}
+
+/* Submit button styling */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #0d47a1;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for submit button */
+.btn-login:hover {
+    background-color: #1565c0;
+}
+
+/* Signup link styling */
+.signup-link {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: #0d47a1;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for signup link */
+.signup-link:hover {
+    color: #1565c0;
+}
