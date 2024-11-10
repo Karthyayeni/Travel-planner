@@ -12,4 +12,3 @@ export const fetchTouristSpots = async (districtId) => {
   const response = await axios.get(`${API_URL}/tourist-spots/${districtId}`);
   return response.data;
 };
-

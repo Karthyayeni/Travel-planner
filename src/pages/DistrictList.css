@@ -169,3 +169,27 @@ p {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 }
+
+.weather-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.weather-btn:hover {
+  background-color: #0056b3;
+}
+
+.weather-info {
+  margin-top: 15px;
+}
+
+.weather-info img {
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+}

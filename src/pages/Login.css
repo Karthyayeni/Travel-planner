@@ -4,75 +4,85 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('https://wallpapershome.com/images/wallpapers/ocean-1920x1080-5k-4k-wallpaper-8k-shore-beach-clouds-sky-5518.jpg');
+    background-image: url("https://wallpapershome.com/images/wallpapers/ocean-1920x1080-5k-4k-wallpaper-8k-shore-beach-clouds-sky-5518.jpg");
     background-size: cover;
     background-position: center;
-}
-
-/* Login card */
-.login-card {
-    background: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Login card */
+  .login-card {
+    background: rgba(255, 255, 255, 0.8);
     padding: 2rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
-    width: 400px; /* Adjust width if necessary */
+    width: 400px;
     text-align: center;
     backdrop-filter: blur(10px);
     transition: transform 0.3s ease;
-}
-
-/* Hover effect for login card */
-.login-card:hover {
+  }
+  
+  /* Hover effect for login card */
+  .login-card:hover {
     transform: translateY(-5px);
-}
-
-/* Title styling */
-h1 {
+  }
+  
+  /* Title styling */
+  .login-title {
     font-family: 'Arial', sans-serif;
     font-size: 2rem;
     color: #0d47a1;
     margin-bottom: 1.5rem;
-}
-
-/* Input container for each field */
-.input-container {
-    position: relative;
+  }
+  
+  /* Input container for each field */
+  .input-container {
     margin-bottom: 1.5rem;
-}
-
-/* Input fields styling */
-input[type="email"],
-input[type="password"] {
-    width: calc(100% - 20px); /* Adjusted width */
-    padding: 10px 40px;
+    text-align: left;
+  }
+  
+  /* Label styling */
+  .input-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Wrapper for input and icon */
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center; /* Vertically center */
+  }
+  
+  /* Styling for icons */
+  .input-icon {
+    font-size: 1.5rem;
+    color: #0d47a1;
+    margin-right: 10px; /* Space between icon and input */
+  }
+  
+  /* Input fields styling */
+  .input-field {
+    flex: 1;
+    padding: 10px;
     font-size: 1rem;
-    border-radius: 25px;
     border: 1px solid #ddd;
+    border-radius: 25px;
     background: rgba(255, 255, 255, 0.9);
     transition: all 0.3s ease;
-    box-sizing: border-box; /* Ensures padding is included in width */
-}
-
-/* Icon inside input field */
-.input-icon {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    color: #0d47a1;
-    font-size: 1.2rem;
-}
-
-/* Focus state for input fields */
-input[type="email"]:focus,
-input[type="password"]:focus {
+    box-sizing: border-box;
+    outline: none;
+  }
+  
+  /* Focus state for input fields */
+  .input-field:focus {
     border-color: #0d47a1;
     box-shadow: 0 0 5px rgba(13, 71, 161, 0.5);
-    outline: none;
-}
-
-/* Submit button styling */
-.btn-login {
+  }
+  
+  /* Submit button styling */
+  .btn-login {
     width: 100%;
     padding: 12px;
     background-color: #0d47a1;
@@ -82,23 +92,26 @@ input[type="password"]:focus {
     font-size: 1.1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-/* Hover effect for submit button */
-.btn-login:hover {
+  }
+  
+  /* Hover effect for submit button */
+  .btn-login:hover {
     background-color: #1565c0;
-}
-
-/* Signup link styling */
-.signup-link {
-    display: inline-block;
+  }
+  
+  /* Signup link styling */
+  .signup-text {
     margin-top: 1rem;
+    color: #333;
+  }
+  
+  .signup-link {
     text-decoration: none;
     color: #0d47a1;
     transition: color 0.3s ease;
-}
-
-/* Hover effect for signup link */
-.signup-link:hover {
+  }
+  
+  .signup-link:hover {
     color: #1565c0;
-}
+  }
+  

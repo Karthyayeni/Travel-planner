@@ -1,68 +1,51 @@
-// src/components/Favorites.js
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import './Favorites.css';
 
-function Favorites({ userId }) {
-    const [favorites, setFavorites] = useState([]);
-    const [placeName, setPlaceName] = useState('');
-    const [error, setError] = useState('');
+const Favorites = () => {
+  const user = JSON.parse(localStorage.getItem('user')); // Get logged-in user
+  const [favorites, setFavorites] = useState([]);
 
-    useEffect(() => {
-        const fetchFavorites = async () => {
-            try {
-                const response = await axios.get(`http://localhost:8000/favorites/${userId}`);
-                setFavorites(response.data);
-            } catch (error) {
-                console.error('Error fetching favorites:', error);
-            }
-        };
+  useEffect(() => {
+    if (user) {
+      const storedFavorites = JSON.parse(localStorage.getItem(user.email)) || [];
+      setFavorites(storedFavorites);
+    }
+  }, [user]);
 
-        fetchFavorites();
-    }, [userId]);
+  const removeFromFavorites = (spotId) => {
+    if (!user) return;
 
-    const addFavorite = async (e) => {
-        e.preventDefault();
+    const updatedFavorites = favorites.filter((fav) => fav.id !== spotId);
+    setFavorites(updatedFavorites);
+    localStorage.setItem(user.email, JSON.stringify(updatedFavorites)); // Update localStorage
+    alert('Removed from favorites!');
+  };
 
-        if (!placeName) {
-            setError('Place name is required.');
-            return;
-        }
-
-        try {
-            await axios.post('http://localhost:8000/favorites', {
-                userId,
-                placeName,
-            });
-            setFavorites((prevFavorites) => [...prevFavorites, { placeName }]);
-            setPlaceName('');
-            setError('');
-        } catch (error) {
-            setError('Error adding favorite.');
-            console.error('Error adding favorite:', error);
-        }
-    };
-
-    return (
-        <div className="favorites-container">
-            <h1>Your Favorite Places</h1>
-            <form onSubmit={addFavorite}>
-                <input
-                    type="text"
-                    value={placeName}
-                    onChange={(e) => setPlaceName(e.target.value)}
-                    placeholder="Add a favorite place"
-                    required
-                />
-                <button type="submit">Add Favorite</button>
-                {error && <p className="error-message">{error}</p>}
-            </form>
-            <ul>
-                {favorites.map((favorite, index) => (
-                    <li key={index}>{favorite.placeName}</li>
-                ))}
-            </ul>
+  return (
+    <div className="favorites-container">
+      <h1>Your Favorites</h1>
+      {favorites.length > 0 ? (
+        <div className="favorites-list">
+          {favorites.map((fav) => (
+            <div key={fav.id} className="favorite-card">
+              <img src={fav.imageUrl} alt={fav.name} className="favorite-image" />
+              <div className="favorite-details">
+                <h2>{fav.name}</h2>
+                <a href={fav.locationUrl} target="_blank" rel="noopener noreferrer">
+                  View on Google Maps
+                </a>
+                <button className="btn-remove" onClick={() => removeFromFavorites(fav.id)}>
+                  Remove from Favorites
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-    );
-}
+      ) : (
+        <p>No favorites added yet. Add your favorite tourist spots!</p>
+      )}
+    </div>
+  );
+};
 
 export default Favorites;

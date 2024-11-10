@@ -17,7 +17,7 @@ const spots = [
   { id: 13, name: 'Mudumalai Wildlife Sanctuary', location: 'Nilgiris', rating: 4.7, imageUrl: 'https://www.goldentriangletour.com/userfiles/MuduMalai-Wildlife-Sanctuary.jpg' },
   { id: 14, name: 'Yelagiri', location: 'Yelagiri', rating: 4.5, imageUrl: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/23/b4/7f/view-of-the-town-below.jpg?w=1200&h=-1&s=1' },
   { id: 15, name: 'Vivekananda Rock Memorial', location: 'Kanyakumari', rating: 4.9, imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/b6/RockMemorial.jpg' },
-  { id: 16, name: 'Anamalai Tiger Reserve', location: 'Coimbatore', rating: 4.6, imageUrl: 'https://www.atrpollachi.com/wp-content/uploads/2022/08/tgm1.png' },
+  { id: 16, name: 'Anamalai Tiger Reserve', location: 'Coimbatore', rating: 4.6, imageUrl: 'https://c1.staticflickr.com/5/4741/27834614469_9df569d0e3_h.jpg' },
   { id: 17, name: 'Sivaganga Gardens', location: 'Thanjavur', rating: 4.5, imageUrl: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/1b/c6/29/inside-sivaganga-gardens.jpg?w=1200&h=-1&s=1' },
   { id: 18, name: 'Vellore Fort', location: 'Vellore', rating: 4.5, imageUrl: 'https://www.tamilnadutourism.tn.gov.in/img/pages/large-desktop/vellore-fort-1656160538_62debb42d3702725aa57.webp' },
   { id: 19, name: 'Nilgiri Mountain Railway', location: 'Ooty', rating: 4.8, imageUrl: 'https://www.tamilnadutourism.tn.gov.in/img/pages/large-desktop/the-nilgiri-mountain-railway-1653904566_39d2e58ed7221faa8057.webp' },

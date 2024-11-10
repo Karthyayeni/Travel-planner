@@ -1,0 +1,37 @@
+.favorites-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .favorite-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px auto;
+    max-width: 300px;
+    text-align: left;
+  }
+  
+  .favorite-image {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .favorite-details h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .btn-remove {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-remove:hover {
+    background-color: #b02a37;
+  }
+  

@@ -1,13 +1,14 @@
-// src/pages/HomePage.js
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import './DistrictList.css'; // Make sure to include the updated CSS file
+import { Link } from 'react-router-dom'; // Import useLocation
+import './DistrictList.css';
 
 const HomePage = () => {
     const [districts, setDistricts] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
 
+    // Fetch districts
     useEffect(() => {
         const fetchDistricts = async () => {
             try {
@@ -20,6 +21,7 @@ const HomePage = () => {
         fetchDistricts();
     }, []);
 
+    // Filter districts based on the search term
     const filteredDistricts = districts.filter(district =>
         district.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -30,10 +32,10 @@ const HomePage = () => {
             <div className="parallax-one">
                 <div className="carousel-text">
                     <h2>Your Journey Starts Here</h2>
+                    {/* Display user name after successful login */}
                 </div>
             </div>
 
-            {/* Search Bar */}
             <div className="search-container">
                 <div className="search-wrapper">
                     <FaSearch className="search-icon" />
@@ -55,6 +57,11 @@ const HomePage = () => {
                                 <img src={district.imageUrl} alt={district.name} />
                                 <h2>{district.name}</h2>
                             </a>
+
+                            {/* Weather Button that links to the weather page */}
+                            <Link to={`/weather/${district.name}`} className="weather-btn">
+                                Get Weather
+                            </Link>
                         </div>
                     ))
                 ) : (
