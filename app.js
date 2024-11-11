@@ -37,6 +37,8 @@ app.post("/", async (req, res) => {
     }
 });
 
+
+
 // Route for signup
 app.post("/signup", async (req, res) => {
     const { email, password } = req.body;

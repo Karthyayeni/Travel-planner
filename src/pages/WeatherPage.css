@@ -1,0 +1,80 @@
+/* src/styles/WeatherPage.css */
+.weather-container {
+    padding: 40px;
+    background-color: #f7f7f7;
+    border-radius: 12px;
+    max-width: 900px; /* Adjusted max width for better layout with the map */
+    margin: 20px auto; /* Center align the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for a card effect */
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping for responsive design */
+    gap: 20px; /* Adds spacing between elements */
+}
+
+.weather-title {
+    font-size: 2.5rem;
+    color: #333;
+    width: 100%; /* Full-width title above content */
+    margin-bottom: 20px;
+    text-align: center; /* Center-align title */
+}
+
+.weather-info {
+    flex: 1;
+    min-width: 300px; /* Ensures responsiveness */
+    max-width: 400px;
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center; /* Center-align the weather data */
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Card effect */
+}
+
+.weather-info p {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center; /* Centers the icon and text */
+    align-items: center;
+    color: #333; /* Set text color */
+}
+
+.weather-info .fa {
+    margin-right: 15px;
+    color: #ff7f50; /* Icon color */
+    font-size: 2rem; /* Increase icon size */
+}
+
+.weather-info p:nth-child(odd) .fa {
+    color: #1e90ff; /* Change color for temperature icon */
+}
+
+.weather-info p:nth-child(2) .fa {
+    color: #20b2aa; /* Change color for condition icon */
+}
+
+.weather-info p:nth-child(3) .fa {
+    color: #32cd32; /* Change color for humidity icon */
+}
+
+.weather-info p:nth-child(4) .fa {
+    color: #ff4500; /* Change color for wind speed icon */
+}
+
+.weather-info p span {
+    font-weight: bold; /* Make data bold */
+    font-size: 1.9rem; /* Make the data text larger */
+    color: #333; /* Set the text color */
+}
+
+/* Google Map Container */
+.map-container {
+    flex: 1;
+    min-width: 400px;
+    height: 400px; /* Fixed height for consistency */
+    border-radius: 12px;
+    overflow: hidden; /* Ensures the map fits within the container */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Matches card shadow */
+    background-color: #fff;
+}

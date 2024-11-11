@@ -129,3 +129,27 @@
 .card h4:nth-child(4) svg { color: #FF5722; } /* Best Time to Visit */
 .card h4:nth-child(5) svg { color: #3F51B5; } /* Best Months */
 .card h4:nth-child(6) svg { color: #9C27B0; } /* Recommended Hotels */
+
+/* Save Itinerary Button Styling */
+.save-itinerary-btn {
+    background-color: #0d47a1; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    padding: 12px 24px; /* Add padding */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    margin-top: 20px; /* Add space above the button */
+  }
+  
+  .save-itinerary-btn:hover {
+    background-color: #6e94ce; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge button */
+  }
+  
+  .save-itinerary-btn:disabled {
+    background-color: #b5b5b5; /* Disabled state with gray background */
+    cursor: not-allowed; /* Show not-allowed cursor when disabled */
+  }
+  

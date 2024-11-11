@@ -64,7 +64,7 @@ function Signup() {
       <div className="card signup-card">
         <h1>Signup</h1>
         <form action="POST" className="signup-form">
-          <div className="input-container">
+          <div className="input-container1">
             <FaUser className="input-icon" />
             <input
               type="email"
@@ -74,7 +74,7 @@ function Signup() {
               required
             />
           </div>
-          <div className="input-container">
+          <div className="input-container1">
             <FaLock className="input-icon" />
             <input
               type="password"
@@ -84,7 +84,7 @@ function Signup() {
               required
             />
           </div>
-          <div className="input-container">
+          <div className="input-container1">
             <FaLock className="input-icon" />
             <input
               type="password"

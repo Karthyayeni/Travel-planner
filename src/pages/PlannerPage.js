@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaAppleAlt, FaSun, FaWalking, FaWater } from 'react-icons/fa';
 import './PlannerPage.css'; // Importing icons
 
@@ -45,6 +45,7 @@ const districtMapping = {
   "Virudhunagar": "38"
 };
 
+// Updated itemsToCarry array is now part of the plan object.
 const itemsToCarry = [
   { name: 'Sunscreen', icon: <FaSun /> },
   { name: 'Water', icon: <FaWater /> },
@@ -53,13 +54,25 @@ const itemsToCarry = [
 ];
 
 const PlannerPage = () => {
-  const [district, setDistrict] = useState(''); // State for district input
+  const [district, setDistrict] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [members, setMembers] = useState(1); // Added members state
   const [plan, setPlan] = useState(null);
   const [touristSpots, setTouristSpots] = useState([]);
   const [districtInfo, setDistrictInfo] = useState(null);
-  const [loading, setLoading] = useState(false); // Loading state
+  const [loading, setLoading] = useState(false);
+
+  // Fetch saved itineraries from localStorage on component mount
+  const [savedItineraries, setSavedItineraries] = useState([]);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      const itineraries = JSON.parse(localStorage.getItem(user.email)) || [];
+      setSavedItineraries(itineraries);
+    }
+  }, []);
 
   const handlePlan = async () => {
     if (!district) {
@@ -67,7 +80,6 @@ const PlannerPage = () => {
       return;
     }
 
-    // Get district ID from the mapping
     const districtId = districtMapping[district];
 
     if (!districtId) {
@@ -82,7 +94,7 @@ const PlannerPage = () => {
 
     const start = new Date(startDate);
     const end = new Date(endDate);
-    const days = Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1; // Add 1 to count both start and end days
+    const days = Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1;
 
     if (days <= 0) {
       alert('End date must be after start date.');
@@ -97,15 +109,15 @@ const PlannerPage = () => {
 
     setLoading(false);
 
-    const recommendedSpots = touristSpots.slice(0, days); // Get spots based on the number of days
+    const recommendedSpots = touristSpots.slice(0, days);
 
     const plan = {
       days,
       recommendedSpots,
-      thingsToCarry: districtInfo?.thingsToCarry || "No information available",
       bestTimeToVisit: districtInfo?.bestTime || "No information available",
       bestMonths: districtInfo?.bestMonths || "No information available",
-      recommendedHotels: districtInfo?.recommendedHotels || []
+      recommendedHotels: districtInfo?.recommendedHotels || [],
+      estimatedCost: calculateCost(days, members) // Estimating the cost based on days and number of members
     };
 
     setPlan(plan);
@@ -123,11 +135,41 @@ const PlannerPage = () => {
   const fetchDistrictInfo = async (districtId) => {
     try {
       const response = await axios.get(`http://localhost:5000/api/districts/${districtId}`);
-      console.log('District Info Response:', response.data);
       setDistrictInfo(response.data);
     } catch (error) {
       console.error('Error fetching district info:', error);
     }
+  };
+
+  // Estimate the cost of the trip based on number of days and members
+  const calculateCost = (days, members) => {
+    const averageCostPerPersonPerDay = 1000; // Assume average cost per person per day
+    return days * members * averageCostPerPersonPerDay;
+  };
+
+  const saveItinerary = () => {
+    if (!plan) return;
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user) {
+      alert("Please log in to save your itinerary.");
+      return;
+    }
+
+    const savedPlans = JSON.parse(localStorage.getItem(user.email)) || [];
+
+    // Save only the details excluding thingsToCarry
+    const itineraryToSave = {
+      ...plan, // Spread operator to copy all the properties
+      // Do not include thingsToCarry
+    };
+
+    savedPlans.push(itineraryToSave);
+    localStorage.setItem(user.email, JSON.stringify(savedPlans)); // Save itineraries under user's email
+
+    setSavedItineraries(savedPlans); // Update the state to reflect the saved itinerary
+
+    alert('Itinerary saved successfully!');
   };
 
   return (
@@ -142,16 +184,24 @@ const PlannerPage = () => {
         />
         <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
         <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+        <input
+          type="number"
+          value={members}
+          onChange={(e) => setMembers(e.target.value)}
+          min="1"
+          placeholder="Number of Members"
+        />
         <button onClick={handlePlan} disabled={loading}>Plan My Trip</button>
       </div>
 
-      {loading && <p>Loading...</p>} {/* Loading state */}
+      {loading && <p>Loading...</p>}
 
       {plan && (
         <div className="card">
           <h3>Your Travel Plan</h3>
           <p><strong>Number of Days:</strong> {plan.days}</p>
-          
+          <p><strong>Estimated Cost:</strong> ₹{plan.estimatedCost}</p>
+
           <h4>Recommended Tourist Spots:</h4>
           <ul>
             {plan.recommendedSpots.length > 0 ? (
@@ -190,6 +240,8 @@ const PlannerPage = () => {
               <li>No hotel recommendations available.</li>
             )}
           </ul>
+
+          <button className="save-itinerary-btn" onClick={saveItinerary}>Save Itinerary</button>
         </div>
       )}
     </div>
