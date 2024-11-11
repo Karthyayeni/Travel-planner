@@ -10,6 +10,7 @@ const HomePage = () => {
     const [searchTerm, setSearchTerm] = useState("");
 
     // Fetch districts
+    // Fetch districts
     useEffect(() => {
         const fetchDistricts = async () => {
             try {
@@ -23,6 +24,7 @@ const HomePage = () => {
     }, []);
 
     // Filter districts based on the search term
+    // Filter districts based on the search term
     const filteredDistricts = districts.filter(district =>
         district.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -33,6 +35,7 @@ const HomePage = () => {
             <div className="parallax-one">
                 <div className="carousel-text">
                     <h2>Your Journey Starts Here</h2>
+                    {/* Display user name after successful login */}
                     {/* Display user name after successful login */}
                 </div>
             </div>
