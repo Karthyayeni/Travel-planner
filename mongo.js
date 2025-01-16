@@ -8,7 +8,7 @@ mongoose.connect("mongodb+srv://karthyayenip22cse:kavya1234@cluster0.60x5m.mongo
 .then(() => {
     console.log("MongoDB connected");
 })
-.catch((err) => {
+.catch((err) => {   
     console.error("Connection failed", err);
 });
 
